@@ -21,7 +21,7 @@ services:
        restart: always
 
   observiumap:
-       image: mbixtech/observium
+       build: observiumap
        environment:
          - OBSERVIUM_ADMIN_USER=admin
          - OBSERVIUM_ADMIN_PASS=passw0rd
