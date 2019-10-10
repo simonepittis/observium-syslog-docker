@@ -29,7 +29,7 @@
 
 FROM arm32v7/ubuntu:16.04
 
-LABEL maintainer "somsakc@hotmail.com"
+LABEL maintainer "roccas@gmail.com"
 LABEL version="1.1"
 LABEL description="Docker container for Observium Community Edition"
 

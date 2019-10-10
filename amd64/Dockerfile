@@ -30,8 +30,8 @@
 
 FROM ubuntu:16.04
 
-LABEL maintainer "somsakc@hotmail.com"
-LABEL version="1.2"
+LABEL maintainer "roccas@gmail.com"
+LABEL version="0.1"
 LABEL description="Docker container for Observium Community Edition"
 
 ARG OBSERVIUM_ADMIN_USER=admin
