@@ -29,7 +29,7 @@ services:
          - OBSERVIUM_DB_NAME=observium
          - OBSERVIUM_DB_USER=observium 
          - OBSERVIUM_DB_PASS=passw0rd
-         - OBSERVIUM_BASE_URL=http://observium.mbixtech.com:8888
+         - OBSERVIUM_BASE_URL=http://10.55.5.92:8668
          - TZ=Asia/Bangkok
        volumes:
          - /home/docker/observium/logs:/opt/observium/logs
@@ -38,7 +38,7 @@ services:
        networks:
          - back-tier
        ports:
-         - "8888:80"
+         - "8668:80"
        restart: always
        depends_on:
          - observiumdb
