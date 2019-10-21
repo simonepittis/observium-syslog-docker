@@ -23,7 +23,7 @@ Either follow the choice A. or B. below to run Observium.
     -e MYSQL_USER=observium \
     -e MYSQL_PASSWORD=passw0rd \
     -e MYSQL_DATABASE=observium
-    -e TZ=Asia/Bangkok
+    -e TZ=America/Argentina/Mendoza
     mariadb
 ```
 
@@ -39,9 +39,9 @@ Either follow the choice A. or B. below to run Observium.
     -e OBSERVIUM_DB_PASS=passw0rd \
     -e OBSERVIUM_DB_NAME=observium \
     -e OBSERVIUM_BASE_URL=http://yourserver.yourdomain:8080 \
-    -e TZ=Asia/Bangkok
+    -e TZ=America/Argentina/Mendoza
     -p 8080:80
-    mbixtech/observium
+    marcelofr/observium
 ```
 
 > Note:
