@@ -2,7 +2,7 @@
 Observium is network monitoring with intuition. It is a low-maintenance auto-discovering network monitoring platform supporting a wide range of device types, platforms and operating systems including Cisco, Windows, Linux, HP, Juniper, Dell, FreeBSD, Brocade, Netscaler, NetApp and many more. Observium focuses on providing a beautiful and powerful yet simple and intuitive interface to the health and status of your network. For more information, go to http://www.observium.org site.
 
 Available platform are:-
-* AMD64 (Intel x86_64) https://hub.docker.com/r/mbixtech/observium/
+* AMD64 (Intel x86_64) https://hub.docker.com/r/marcelofr/observium/
 * ARM32v7 (Raspberri Pi 2/3) https://hub.docker.com/r/mbixtech/arm32v7-observium/
 
 ## Usage
