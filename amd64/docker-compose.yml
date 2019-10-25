@@ -12,7 +12,7 @@ services:
          - MYSQL_USER=observium
          - MYSQL_PASSWORD=passw0rd
          - MYSQL_DATABASE=observium
-         - TZ=Asia/Bangkok
+         - TZ=America/Argentina/Mendoza
        volumes:
          - /home/docker/observium/data:/var/lib/mysql
 #         - /home/docker/observium/mysql:/docker-entrypoint-initdb.d
@@ -30,7 +30,7 @@ services:
          - OBSERVIUM_DB_USER=observium 
          - OBSERVIUM_DB_PASS=passw0rd
          - OBSERVIUM_BASE_URL=http://10.55.5.92:8668
-         - TZ=Asia/Bangkok
+         - TZ=America/Argentina/Mendoza
        volumes:
          - /home/docker/observium/logs:/opt/observium/logs
          - /home/docker/observium/lock:/opt/observium/lock
