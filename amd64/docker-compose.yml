@@ -33,7 +33,7 @@ services:
          - TZ=Asia/Bangkok
        volumes:
          - /home/docker/observium/logs:/opt/observium/logs
-#         - /home/docker/observium/lock:/opt/observium/lock
+         - /home/docker/observium/lock:/opt/observium/lock
          - /home/docker/observium/rrd:/opt/observium/rrd
        networks:
          - back-tier
