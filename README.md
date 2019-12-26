@@ -17,13 +17,13 @@ Either follow the choice A. or B. below to run Observium.
 ```
 - Run official MariaDB container
 ```
-  $ docker run --name observiumdb
+  $ docker run --name observiumdb \
     -v /home/docker/observium/data:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=passw0rd \
     -e MYSQL_USER=observium \
     -e MYSQL_PASSWORD=passw0rd \
-    -e MYSQL_DATABASE=observium
-    -e TZ=America/Argentina/Mendoza
+    -e MYSQL_DATABASE=observium \
+    -e TZ=America/Argentina/Mendoza \
     mariadb
 ```
 
@@ -39,8 +39,8 @@ Either follow the choice A. or B. below to run Observium.
     -e OBSERVIUM_DB_PASS=passw0rd \
     -e OBSERVIUM_DB_NAME=observium \
     -e OBSERVIUM_BASE_URL=http://yourserver.yourdomain:8080 \
-    -e TZ=America/Argentina/Mendoza
-    -p 8080:80
+    -e TZ=America/Argentina/Mendoza \
+    -p 8080:80 \
     marcelofr/observium
 ```
 
