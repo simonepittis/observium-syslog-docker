@@ -28,11 +28,11 @@
 #  - Follow platform guideline specified in https://github.com/docker-library/official-images
 # 
 
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
-LABEL maintainer "roccas@gmail.com"
-LABEL version="0.1"
-LABEL description="Docker container for Observium Community Edition"
+LABEL maintainer "noc"
+LABEL version="1.0"
+LABEL description="Docker container for Observium Community Edition, included Syslog-NG"
 
 ARG OBSERVIUM_ADMIN_USER=admin
 ARG OBSERVIUM_ADMIN_PASS=passw0rd
@@ -57,6 +57,7 @@ RUN apt-get install -y libapache2-mod-php7.0 php7.0-cli php7.0-mysql php7.0-mysq
       graphviz imagemagick apache2
 RUN apt-get install -y libvirt-bin
 RUN apt-get install -y cron supervisor wget locales
+RUN apt-get install -y syslog-ng
 RUN apt-get clean
 
 # set locale
@@ -79,7 +80,8 @@ RUN cd /opt/observium && \
     sed -i -e "s/= 'USERNAME';/= getenv('OBSERVIUM_DB_USER');/g" config.php && \
     sed -i -e "s/= 'PASSWORD';/= getenv('OBSERVIUM_DB_PASS');/g" config.php && \
     sed -i -e "s/= 'observium';/= getenv('OBSERVIUM_DB_NAME');/g" config.php && \
-    echo "\$config['base_url'] = getenv('OBSERVIUM_BASE_URL');" >> config.php
+    echo "\$config['base_url'] = getenv('OBSERVIUM_BASE_URL');" >> config.php && \
+    echo "\$config['enable_syslog'] = 1;" >> config.php
 
 COPY observium-init /opt/observium/observium-init.sh
 RUN chmod a+x /opt/observium/observium-init.sh
@@ -104,6 +106,9 @@ RUN a2dismod mpm_event && \
 COPY observium-apache24 /etc/apache2/sites-available/000-default.conf
 RUN rm -fr /var/www
 
+# configure Syslog-NG configuration
+COPY observium-syslogng /etc/syslog-ng/syslog-ng.conf
+
 # configure observium cron job
 #COPY observium-cron /etc/cron.d/observium
 COPY observium-cron /tmp/observium
@@ -116,6 +121,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord"]
 
 EXPOSE 80/tcp
+EXPOSE 514/udp
 
 VOLUME ["/opt/observium/lock", "/opt/observium/logs","/opt/observium/rrd"]
 
