@@ -2,7 +2,7 @@
 Observium is network monitoring with intuition. It is a low-maintenance auto-discovering network monitoring platform supporting a wide range of device types, platforms and operating systems including Cisco, Windows, Linux, HP, Juniper, Dell, FreeBSD, Brocade, Netscaler, NetApp and many more. Observium focuses on providing a beautiful and powerful yet simple and intuitive interface to the health and status of your network. For more information, go to http://www.observium.org site.
 
 Available platform are:-
-* AMD64 (Intel x86_64) https://hub.docker.com/r/simonepittis/observium-syslog-docker/
+* AMD64 (Intel x86_64) https://hub.docker.com/simonepittis/observium-syslog-docker/
 
 ### Use Docker Composer
 - Follow instuctions below to create extra working directory of docker containers.
@@ -21,9 +21,7 @@ Available platform are:-
 ```
 
 ## Changes
-- Corrected error of "DB Error 1044: Access denied for user 'observium'@'%' to database 'observium'" by replacing MYSQL_DB_NAME environment variable of database container with MYSQL_DATABASE instead (regarding environment definition changed by official mariadb image).
-- Revised docker-compose.yml file and Dockerfile files.
-- Add Observium image available on Raspberri Pi 2/3 (arm32v7) platform.
+- Add Syslog-NG enable on Observium image.
 
 ## Source Repository
 See source of project at https://github.com/simonepittis/observium-syslog-docker
