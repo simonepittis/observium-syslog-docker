@@ -5,7 +5,7 @@
 version: '3'
 
 services:
-  observiumdb:
+  db:
        image: mariadb:latest
        environment:
          - MYSQL_ROOT_PASSWORD=passw0rd
@@ -17,10 +17,10 @@ services:
          - /home/docker/observium/data:/var/lib/mysql
 #         - /home/docker/observium/mysql:/docker-entrypoint-initdb.d
        networks:
-         - back-tier
+         - observium
        restart: always
 
-  observiumap:
+  app:
        build: observiumap
        environment:
          - OBSERVIUM_ADMIN_USER=admin
@@ -36,14 +36,15 @@ services:
          - /home/docker/observium/lock:/opt/observium/lock
          - /home/docker/observium/rrd:/opt/observium/rrd
        networks:
-         - back-tier
+         - observium
        ports:
          - "8081:80"
+         - "514:514/udp"
        restart: always
        depends_on:
-         - observiumdb
+         - db
 
 networks:
-  back-tier:
+  observium:
       driver: bridge
 
