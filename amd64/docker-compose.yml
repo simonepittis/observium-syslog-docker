@@ -29,8 +29,8 @@ services:
          - OBSERVIUM_DB_NAME=observium
          - OBSERVIUM_DB_USER=observium 
          - OBSERVIUM_DB_PASS=passw0rd
-         - OBSERVIUM_BASE_URL=http://10.55.5.92:8668
-         - TZ=America/Argentina/Mendoza
+         - OBSERVIUM_BASE_URL=http://changeme.host:8081
+         - TZ=Europe/Oslo
        volumes:
          - /home/docker/observium/logs:/opt/observium/logs
          - /home/docker/observium/lock:/opt/observium/lock
@@ -38,7 +38,7 @@ services:
        networks:
          - back-tier
        ports:
-         - "8668:80"
+         - "8081:80"
        restart: always
        depends_on:
          - observiumdb
