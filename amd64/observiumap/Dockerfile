@@ -98,7 +98,7 @@ RUN phpenmod mcrypt
 # configure apache modules
 RUN a2dismod mpm_event && \
     a2enmod mpm_prefork && \
-    a2enmod php7.0 && \
+    a2enmod php8.1 && \
     a2enmod rewrite
 
 # configure apache configuration
