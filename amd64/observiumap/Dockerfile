@@ -52,8 +52,8 @@ ENV OBSERVIUM_DB_NAME=$OBSERVIUM_DB_NAME
 # install prerequisites
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update
-RUN apt-get install -y libapache2-mod-php7.0 php7.0-cli php7.0-mysql php7.0-mysqli php7.0-gd php7.0-mcrypt php7.0-json \
-      php-pear snmp fping mysql-client python-mysqldb rrdtool subversion whois mtr-tiny ipmitool \
+RUN apt install -y libapache2-mod-php php-cli php-mysql php-gd php-json \
+      php-pear snmp fping mysql-client python3-mysqldb rrdtool subversion whois mtr-tiny ipmitool \
       graphviz imagemagick apache2
 RUN apt-get install -y libvirt-bin
 RUN apt-get install -y cron supervisor wget locales
