@@ -120,16 +120,6 @@ RUN echo "" >> /etc/crontab && \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord"]
 
-# Add Syslog-NG staring in supervisor config
-RUN echo "" >> /etc/supervisord.conf && \
-    echo "[program:syslog-ng]" >> /etc/supervisord.conf && \
-    echo "command=/bin/bash -c \"/usr/sbin/syslog-ng -F\"" >> /etc/supervisord.conf && \
-    echo "stdout_logfile=/dev/stdout" >> /etc/supervisord.conf && \
-    echo "stdout_logfile_maxbytes=0" >> /etc/supervisord.conf && \
-    echo "stderr_logfile=/dev/stderr" >> /etc/supervisord.conf && \
-    echo "stderr_logfile_maxbytes=0" >> /etc/supervisord.conf && \
-    echo "user=root" >> /etc/supervisord.conf
-
 EXPOSE 80/tcp
 EXPOSE 514/udp
 
