@@ -117,7 +117,7 @@ RUN echo "" >> /etc/crontab && \
     rm -f /tmp/observium
 
 # configure container interfaces
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /etc/supervisord.conf
 CMD ["/usr/bin/supervisord"]
 
 EXPOSE 80/tcp
