@@ -54,7 +54,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-get update
 RUN apt install -y libapache2-mod-php php-cli php-mysql php-gd php-json \
       php-pear snmp fping mysql-client python3-mysqldb rrdtool subversion whois mtr-tiny ipmitool \
-      graphviz imagemagick apache2
+      graphviz imagemagick apache2 python3-pymysql
 RUN apt-get install -y libvirt-daemon-system libvirt-clients
 RUN apt-get install -y cron supervisor wget locales
 RUN apt-get install -y syslog-ng
